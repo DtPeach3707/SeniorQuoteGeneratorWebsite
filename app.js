@@ -16,8 +16,7 @@ var allow_cors = function(req, res, next)
 }
 
 app.use(express.json()); 
-app.use(allow_cors);
-app.use(express.static('build')); 
+app.use(allow_cors); 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -26,7 +25,7 @@ app.get('/quote', (req, res, next) => {
 });
 
 app.get('/', (req, res, next) => {
-    res.sendFile('./build/index.html');
+    res.sendFile('./client/build/index.html');
 });
 
 app.listen(PORT, () => {
