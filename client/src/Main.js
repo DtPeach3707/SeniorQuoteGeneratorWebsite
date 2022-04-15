@@ -9,7 +9,7 @@ class Main extends Component {
   }
 
   callAPI() {
-    fetch("http://localhost:5000/quote")
+    fetch("https://senior-quote-generator.herokuapp.com/quote")
         .then(response => response.text())
         .then(response => this.setState({ quote: response }));
   } 
