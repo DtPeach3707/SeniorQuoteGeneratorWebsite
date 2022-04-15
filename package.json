@@ -4,8 +4,10 @@
   "description": "Website for AI-generated senior quotes",
   "main": "app.js",
   "scripts": {
+    "client": "cd client && npm start",
+    "api": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:ui": "cd ./client && npm run build --prod && cp -r build ../"
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
