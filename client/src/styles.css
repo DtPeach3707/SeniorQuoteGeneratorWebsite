@@ -1,0 +1,25 @@
+.quote {
+  text-align: center;
+  font-size: 200%;
+  font-family: sans-serif;
+}
+
+.quote-wrap {
+  height: 20rem;
+}
+
+.header {
+  text-align: center;
+}
+
+.header strong {
+  font-size: 125%;
+}
+
+.footer {
+  text-align: center;
+}
+
+ul a {
+  padding: 30px;
+}

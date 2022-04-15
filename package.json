@@ -1,0 +1,25 @@
+{
+  "name": "seniorquotegeneratorwebsite",
+  "version": "1.0.0",
+  "description": "Website for AI-generated senior quotes",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DtPeach3707/SeniorQuoteGeneratorWebsite.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DtPeach3707/SeniorQuoteGeneratorWebsite/issues"
+  },
+  "homepage": "https://github.com/DtPeach3707/SeniorQuoteGeneratorWebsite#readme",
+  "dependencies": {
+    "@tensorflow/tfjs": "^3.15.0",
+    "@tensorflow/tfjs-node": "^3.15.0",
+    "body-parser": "^1.20.0",
+    "express": "^4.17.3"
+  }
+}
