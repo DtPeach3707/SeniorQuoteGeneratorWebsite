@@ -17,7 +17,7 @@ var allow_cors = function(req, res, next)
 
 app.use(express.json()); 
 app.use(allow_cors);
-app.use(express.static('build')); 
+app.use(express.static(path.join(__dirname, './client/build'))); 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -25,9 +25,9 @@ app.get('/quote', (req, res, next) => {
     quote(req, res, next);
 });
 
-app.get('/', (req, res, next) => {
-    res.sendFile('index.html');
-});
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/client/build/index.html'))
+ });
 
 app.listen(PORT, () => {
   console.log(`App is running on ${PORT}`) 
