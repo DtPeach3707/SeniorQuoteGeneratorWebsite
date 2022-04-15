@@ -20,15 +20,15 @@ app.use(express.json());
 app.use(allow_cors); 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, '../client', 'build'))); // static css and js files
+app.use(express.static(path.join(__dirname, 'build'))); // static css and js files
 
 app.get('/quote', (req, res, next) => {
     quote(req, res, next);
 });
 
 app.get('/', (req, res, next) => {
-    console.log(path.join(__dirname, '/../client', 'build', 'index.html'));
-    res.sendFile(path.join(__dirname, '/../client', 'build', 'index.html'));
+    console.log(path.join(__dirname, 'build', 'index.html'));
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 app.listen(PORT, () => {
