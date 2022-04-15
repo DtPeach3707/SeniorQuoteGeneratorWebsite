@@ -27,7 +27,6 @@ app.get('/quote', (req, res, next) => {
 });
 
 app.get('/', (req, res, next) => {
-    console.log(path.join(__dirname, 'build', 'index.html'));
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
