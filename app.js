@@ -26,7 +26,7 @@ app.get('/quote', (req, res, next) => {
 });
 
 app.get('/', (req, res, next) => {
-    res.send('index.html');
+    res.sendFile('index.html');
 });
 
 app.listen(PORT, () => {
