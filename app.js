@@ -25,6 +25,10 @@ app.get('/quote', (req, res, next) => {
     quote(req, res, next);
 });
 
+app.get('/', (req, res, next) => {
+    res.send('index.html');
+});
+
 app.listen(PORT, () => {
   console.log(`App is running on ${PORT}`) 
 }) 
