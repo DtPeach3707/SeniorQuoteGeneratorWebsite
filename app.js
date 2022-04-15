@@ -23,6 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'build'))); // static css and js files
 
 app.get('/quote', (req, res, next) => {
+    var origin = req.get('origin');
     quote(req, res, next);
 });
 
