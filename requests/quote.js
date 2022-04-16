@@ -28,7 +28,7 @@ function chooseIndex(weights){
 const quote = async (req, res, next) => {
     var handler = tfn.io.fileSystem('./models/actual/model.json');
     var actual_model = await tf.loadLayersModel(handler);
-    const max_char = 200;
+    const max_char = 150;
     var char_lis = ['A', 'ï', '»', '¿', '"', 'W', 'o', 'u', 'l', 'd', ' ', 'y', 'i', 'k', 'e', 'f', 'm', 't', '?', '\n', 'I', 'h', 'a', 'v', 'n', 'w', 'g', ',', 'b', "'", 'r', '.', '-', 'D', 'Y', 's', 'p', 'T', 'c', 'q', 'J', 'L', 'R', 'O', 'z', 'B', 'E', 'C', 'S', 'F', 'M', 'X', 'Z', 'G', 'H', 'j', 'P', 'N', 'K', 'V', 'x', ';', '!', 'U', ':', 'Q', '3', '/', '|'];
     var q_start = Array(char_lis.length).fill().map((_, idx) => 0.0);
     q_start[char_lis.length - 1] = 1.0;
@@ -58,7 +58,6 @@ const quote = async (req, res, next) => {
 
       }
     }
-    console.log(quote_text);
     res.send(quote_text.split('|')[0]);
 };
 
