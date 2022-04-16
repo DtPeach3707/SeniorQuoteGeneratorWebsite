@@ -1,4 +1,4 @@
-# SeniorQuoteGenerator
+# SeniorQuoteGeneratorWebsite
 
 The website for displaying AI-generated senior quotes. The website uses a React frontend and an Express.js backend (for doing the ML prediction), and is deployed on Heroku.
 
