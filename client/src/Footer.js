@@ -5,7 +5,7 @@ function Footer()
     return(
         <div className='footer'>
             <hr/>
-            <ul>
+            <ul className='ul-table'>
             <a href='https://github.com/DtPeach3707/senior-quote-generator'>
                 View the website repo
             </a>         
