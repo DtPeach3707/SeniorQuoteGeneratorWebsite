@@ -1,8 +1,6 @@
 var express = require('express');
 var tf = require('@tensorflow/tfjs');
 var tfn = require('@tensorflow/tfjs-node');
-const app = express();
-const router = express.Router();
 
 
 function chooseIndex(weights){
