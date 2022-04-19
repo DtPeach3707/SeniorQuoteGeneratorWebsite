@@ -10,7 +10,6 @@ function Header()
             <p>
                 An AI that generates senior quotes. Doesn't work that well for now, because dataset needs to be expanded and model needs to be made more efficient.
             </p>
-            <hr/>
         </div>
     );
 }

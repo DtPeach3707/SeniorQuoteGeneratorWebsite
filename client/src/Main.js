@@ -1,6 +1,8 @@
 import './styles.css';
 import React, { Component } from "react";
 
+var fetch_url = "https://senior-quote-generator.herokuapp.com/quote"; // Setting up url to send requets to
+
 class Main extends Component {
   constructor() {
     super();
@@ -8,7 +10,7 @@ class Main extends Component {
   }
 
   callAPI() {
-    fetch("https://senior-quote-generator.herokuapp.com/quote")
+    fetch(fetch_url)
         .then(response => response.text())
         .then(response => this.setState({ quote: response }));       
   } 
@@ -25,12 +27,26 @@ class Main extends Component {
     this.cleanup();
   }
 
+  recallAPI() {
+    this.setState({ quote: 'Generating quote . . .'});
+    this.callAPI();
+    this.cleanup();
+  }
+
   render() {
     return (
+      <div>
+        <div className='container'>
+        <button onClick={this.recallAPI.bind(this)} id='button'>
+          Click to generate!
+        </button>
+        </div>
+      <hr/>
       <div className='quote-wrap'>
         <p className='quote'>
           {this.state.quote}
         </p>
+      </div>
       </div>
     );
   }

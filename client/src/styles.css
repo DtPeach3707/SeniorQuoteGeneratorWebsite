@@ -36,3 +36,30 @@
   padding-left: 5px;
   padding-right: 5px;
 }
+
+.container {
+  height: 50px;
+  position: relative;
+}
+
+#button
+{
+	height: 50px;
+	width: 200px;
+	outline: none;
+	border-color: #000;
+	border-radius: 2px;
+	background-color: #555;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#button.current
+{
+	box-shadow: 0 0 0 5px white,
+	0 0 0 10px black;
+}
