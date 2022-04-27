@@ -6,20 +6,24 @@ var fetch_url = "https://senior-quote-generator.herokuapp.com/quote"; // Setting
 class Main extends Component {
   constructor() {
     super();
-    this.state = { quote: 'Generating quote . . .' };
+    this.state = { quote: 'Generating quote . . .', category: 'actual' };
+
+    this.handleChange = this.handleChange.bind(this);
   }
 
   callAPI() {
-    fetch(fetch_url)
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ category: this.state.category})
+    };
+
+    fetch(fetch_url, requestOptions)
         .then(response => response.text())
-        .then(response => this.setState({ quote: response }));       
+        .then(response => this.setState({ quote: response }));         
   } 
 
   cleanup() { // for fixing text if request has a timeout
-    if (this.state.quote === '<!DOCTYPE html> <html> <head> <meta name="viewport" content="width=device-width, initial-scale=1"> <meta charset="utf-8"> <title>Application Error</title> <style media="screen"> html,body,iframe { margin: 0; padding: 0; } html,body { height: 100%; overflow: hidden; } iframe { width: 100%; height: 100%; border: 0; } </style> </head> <body> <iframe src="//www.herokucdn.com/error-pages/application-error.html"></iframe> </body> </html>')
-    {
-      this.setState({ quote: 'Sorry, but the senior quote took too long!'})
-    }
   }
 
   componentDidMount() {
@@ -33,9 +37,23 @@ class Main extends Component {
     this.cleanup();
   }
 
+  handleChange(event) {
+    this.setState({category: event.target.value});
+  }
+
   render() {
     return (
       <div>
+        <div className='form-container'>
+        <form id="forme">
+          <p className='p-center'>Select category of quote:  </p>
+          <select id="pick" value={this.state.category} onChange={this.handleChange}>
+            <option value="actual">Actual</option>
+            <option value="joke">Joke</option>
+            <option value="mixed">Mixed</option>
+          </select>
+        </form>
+        </div>
         <div className='container'>
         <button onClick={this.recallAPI.bind(this)} id='button'>
           Click to generate!

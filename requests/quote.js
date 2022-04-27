@@ -24,12 +24,13 @@ function chooseIndex(weights){
   }
 
 const quote = async (req, res, next) => {
-    var handler = tfn.io.fileSystem('./models/actual/model.json');
+    var handler = tfn.io.fileSystem('./models/' + req.body.category + '/model.json');
     var actual_model = await tf.loadLayersModel(handler);
     const max_char = 150;
-    var char_lis = ['A', 'ï', '»', '¿', '"', 'W', 'o', 'u', 'l', 'd', ' ', 'y', 'i', 'k', 'e', 'f', 'm', 't', '?', '\n', 'I', 'h', 'a', 'v', 'n', 'w', 'g', ',', 'b', "'", 'r', '.', '-', 'D', 'Y', 's', 'p', 'T', 'c', 'q', 'J', 'L', 'R', 'O', 'z', 'B', 'E', 'C', 'S', 'F', 'M', 'X', 'Z', 'G', 'H', 'j', 'P', 'N', 'K', 'V', 'x', ';', '!', 'U', ':', 'Q', '3', '/', '|'];
+    var char_lis = ['A', 'ï', '»', '¿', '"', 'W', 'o', 'u', 'l', 'd', ' ', 'y', 'i', 'k', 'e', 'f', 'm', 't', '?', '\n', 'I', 'h', 'a', 'v', 'n', 'w', 'g', ',', 'b', "'", 'r', '.', '-', 'D', 'Y', 's', 'p', 'T', 'c', 'q', 'J', 'L', 'R', 'O', 'z', 'B', 'E', 'C', 'S', 'F', 'M', 'X', 'Z', 'G', 'H', 'j', 'P', 'N', 'K', 'V', 'x', ';', '!', 'U', ':', 'Q', '3', '/', ')', '*', '1', '2', '7', '%', '8', '0', '#', '(', '&', '|'];
     var q_start = Array(char_lis.length).fill().map((_, idx) => 0.0);
     q_start[char_lis.length - 1] = 1.0;
+    console.log(char_lis.length);
     var quote = [q_start]
     var finished = false;
     var quote_text = "";
@@ -56,7 +57,7 @@ const quote = async (req, res, next) => {
 
       }
     }
-    res.send(quote_text.split('|')[0]);
+    res.end(quote_text.split('|')[0]);
 };
 
 module.exports = quote;

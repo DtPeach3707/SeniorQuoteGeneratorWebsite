@@ -56,10 +56,25 @@
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  font-size: 125%;
 }
 
 #button.current
 {
-	box-shadow: 0 0 0 5px white,
+	box-shadow: 3 3 3 3px white,
 	0 0 0 10px black;
+}
+
+.form-container
+{
+  display: flex;
+  margin-left: 43%;
+  white-space: nowrap;
+}
+
+.p-center
+{
+  text-align: center;
+  display: inline-block;
+  padding-right: 15px;
 }
